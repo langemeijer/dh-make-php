@@ -1,0 +1,8 @@
+/build-stamp
+/configure-stamp
+/debian/files
+/dh-make-pear.1.gz
+/dh-make-pecl.1.gz
+/debian/dh-make-php/
+/debian/dh-make-php.debhelper.log
+/debian/dh-make-php.substvars
