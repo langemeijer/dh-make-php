@@ -1,3 +1,9 @@
+dh-make-php (0.3.0+php55) unstable; urgency=low
+
+  * Add support for new /etc/php5/mods-available structure
+
+ -- Casper Langemeijer <casper@langemeijer.eu>  Sat, 07 Dec 2013 15:06:51 +0100
+
 dh-make-php (0.3.0) unstable; urgency=low
 
   * option --only is deprecated, use --phpversion
