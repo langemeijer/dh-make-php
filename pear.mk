@@ -38,9 +38,9 @@ PEAR_TEST_DIR := tests
 
 # these shouldn't need to be changed
 PEAR_SOURCE_DIR = $(PEAR_PKG)-$(PEAR_PKG_VERSION)
-PEAR_OLD_DOC_DIR = usr/share/php/docs/$(PEAR_PKG)
+PEAR_OLD_DOC_DIR = $(shell pear config-get doc_dir)/$(PEAR_PKG)
 PEAR_NEW_DOC_DIR = usr/share/doc/$(DEB_PACKAGES)
-PEAR_OLD_TEST_DIR = usr/share/php/tests/$(PEAR_PKG)/$(PEAR_TEST_DIR)
+PEAR_OLD_TEST_DIR = $(shell pear config-get test_dir)/$(PEAR_PKG)/$(PEAR_TEST_DIR)
 PEAR_NEW_TEST_DIR = $(PEAR_NEW_DOC_DIR)/tests
 
 common-configure-indep::
@@ -56,12 +56,12 @@ common-install-indep::
 	/usr/bin/pear \
 		-c debian/pearrc \
 		-d include_path=/usr/share/php \
-		-d php_bin=/usr/bin/php \
-		-d bin_dir=/usr/bin \
-		-d php_dir=/usr/share/php \
-		-d data_dir=/usr/share/php/data \
-		-d doc_dir=/usr/share/php/docs \
-		-d test_dir=/usr/share/php/tests \
+		-d php_bin=$(shell pear config-get php_bin) \
+		-d bin_dir=$(shell pear config-get bin_dir) \
+		-d php_dir=$(shell pear config-get php_dir) \
+		-d data_dir=$(shell pear config-get data_dir) \
+		-d doc_dir=$(shell pear config-get doc_dir) \
+		-d test_dir=$(shell pear config-get test_dir) \
 		install --offline --nodeps -P $(DEB_DESTDIR) $(PEAR_SOURCE_DIR)/package.xml
 
 	# move documentation to correct location

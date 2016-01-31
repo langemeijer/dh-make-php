@@ -73,8 +73,11 @@ if(get_class($pf) == "PEAR_PackageFile_v1") {
 		case "packagerversion":
 		case "package":
 		case "release_license":
-		case "date":
+		case "release_date":
 			echo $pf->_packageInfo[$_SERVER["argv"][2]];
+			break;
+		case "date":
+			echo $pf->_packageInfo["release_date"];
 			break;
 		case "license":
 			echo $pf->_packageInfo["release_license"];
@@ -125,7 +128,7 @@ if(get_class($pf) == "PEAR_PackageFile_v1") {
 			echo $pf->_packageInfo["name"];
 			break;
 		case "license":
-			echo $pf->_packageInfo["license"]["_content"];
+			echo $pf->_packageInfo["license"];
 			break;
 		case "maintainers":
 			$tmp = array();

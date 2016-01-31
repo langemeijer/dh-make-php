@@ -1,8 +1,12 @@
-dh-make-php (0.3.0+php55) unstable; urgency=low
+dh-make-php (0.4.0) unstable; urgency=low
 
-  * Add support for new /etc/php5/mods-available structure
+  * add support for new /etc/php5/mods-available structure (Thanks to Casper Langemeijer) (Closes: #736945)
+  * fix bashism (Closes: #690643)
+  * use pear config for getting directories in pear.mk (Closes: #626064)
+  * issued warnings when downloading a package has no negative effect
+    on building the package anymore (Closes: #624473)
 
- -- Casper Langemeijer <casper@langemeijer.eu>  Sat, 07 Dec 2013 15:06:51 +0100
+ -- Uwe Steinmann <steinm@debian.org>  Sat, 01 Feb 2014 12:25:50 +0100
 
 dh-make-php (0.3.0) unstable; urgency=low
 

@@ -121,7 +121,7 @@ while
 		--phpversion) # create modules for the given php versions
 			PHPVERSIONS=$2; shift
 			echo $PHPVERSIONS | grep "[4-5] [4-5]"
-			if [[ $? -eq 0 ]] ; then
+			if [ $? -eq 0 ] ; then
 				echo "Invalid argument to --phpversion."
 				exit 0
 			fi
@@ -150,7 +150,7 @@ if [ -n "${PECLPACKAGENAME}" ]; then
 	if [ -f ${PECLPACKAGENAME} ]; then
 		tar xzf ${PECLPACKAGENAME}
 	else
-		if TEMPMSG=$(/usr/bin/pecl download ${PECLPACKAGENAME} 2> /dev/null); then
+		if TEMPMSG=$(/usr/bin/pecl download ${PECLPACKAGENAME} 2> /dev/null | grep -v ^WARNING); then
 			echo ${TEMPMSG}
 			PECLPACKAGENAME=$(echo ${TEMPMSG} | sed 's/.*downloading \([^ ]*\).*/\1/g' )
 			tar xzf ${PECLPACKAGENAME}
